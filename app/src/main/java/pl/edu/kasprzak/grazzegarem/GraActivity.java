@@ -10,11 +10,9 @@ import android.widget.TextView;
 
 public class GraActivity extends AppCompatActivity {
 
-    // Po każdym obrocie ekranu Activity tworzone jest ponownie.
-    // Czy jest jakiś sposób, aby te zmienne nie były dla każdej instancji
-    // klasy GraActivity tworzone oddzielnie?
-    boolean runningClock = false;
-    int counter = 100;
+    // Dzięki static stan zmiennych nie  zmienia się
+    static boolean runningClock = false;
+    static int counter = 100;
 
     private Runnable worker;
     private Button action;
@@ -25,15 +23,11 @@ public class GraActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gra);
-        // Dlaczego action i clock nie za bardzo podobają się Android Studio?
         action = (Button)findViewById(R.id.action);
         clock = (TextView)findViewById(R.id.clock);
-        // Tutaj tworzymy anonimową klasę która implementuje interfejs Runnable
-        // Odpowiada to definicji class MyRunnable implements Runnable.
         worker = new Runnable() {
             @Override
             public void run() {
-                Log.d("LICZNIK", "DZIAŁAM " + counter);
                 clock.setText("" + counter);
                 --counter;
                 if (runningClock) {
@@ -59,14 +53,18 @@ public class GraActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // Wydaje się, że czegoś tutaj brakuje
+        handler.removeCallbacks(worker);
+
+        // zatrzymanie
         Log.d("CYKL_ZYCIA", "ONPAUSE");
     }
 
     @Override
     protected void onResume() {
+        //if clock running
         super.onResume();
-        // Podobnie jak tutaj, też czegoś brakuje
+        handler.postDelayed(worker, 1);
+        //wznowienie
         Log.d("CYKL_ZYCIA", "ONRESUME");
     }
 

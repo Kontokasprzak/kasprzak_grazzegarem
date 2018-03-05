@@ -5,7 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="pl.edu.kasprzak.grazzegarem.GraActivity"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context="pl.edu.kasprzak.grazzegarem.GraActivity">
     <!-- Czegoś tutaj brakuje -->
+
+    <TextView
+        android:id="@+id/clock"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:text="TextView"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>

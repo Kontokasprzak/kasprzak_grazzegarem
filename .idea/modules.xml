@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GraZZegarem.iml" filepath="$PROJECT_DIR$/GraZZegarem.iml" />
+      <module fileurl="file://C:\Users\Wqawer\AndroidStudioProjects\kasprzak_grazzegarem\GraZZegarem.iml" filepath="C:\Users\Wqawer\AndroidStudioProjects\kasprzak_grazzegarem\GraZZegarem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kasprzak_grazzegarem.iml" filepath="$PROJECT_DIR$/kasprzak_grazzegarem.iml" />
     </modules>
   </component>
 </project>
